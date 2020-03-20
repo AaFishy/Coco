@@ -180,6 +180,11 @@ void add_to_hand(int hand[]) {
         
         // Adds card into array (your 'hand')
         scanf("%d", &hand[i]);
+        // Restarts loop if input is out of range
+        if (hand[i] < 10 || hand[i] > 49) {
+            printf("%d is out of range (10-49)... Please enter another number: ", hand[i]);
+            continue;
+        }
         int n = 0;
         int card_in_hand = 0;
         while (n < i) {
@@ -190,6 +195,7 @@ void add_to_hand(int hand[]) {
             }
             n++;
         }
+        // Restarts loop if card is in hand
         if (card_in_hand) {
             continue;
         }
